@@ -2,7 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
-const analyzer = require("./utils/analyzer");
+const analyzer = require("./analyzer");
 
 const app = express();
 const upload = multer({ dest: "uploads/" });
