@@ -37,9 +37,16 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
     "autoprefixer": "^10.4.20",
+    "babel-jest": "^29.7.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    }
   }
- 
 }

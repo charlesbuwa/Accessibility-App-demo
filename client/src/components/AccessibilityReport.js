@@ -1,25 +1,16 @@
 import React from "react";
 
-const AccessibilityReport = ({ analysis }) => {
-  if (!analysis) {
-    return <p>No analysis available. Upload a file to begin.</p>;
-  }
-
+const AnalysisResults = ({ results }) => {
   return (
-    <div className="p-4 border rounded-md shadow-md">
-      <h2 className="text-xl font-bold">Accessibility Report</h2>
-      <p className="text-lg mt-2">
-        Compliance Score: <span className="font-bold">{analysis.score}%</span>
-      </p>
-      <ul className="list-disc list-inside mt-4">
-        {analysis.issues.map((issue, index) => (
-          <li key={index} className="mb-2">
-            <p>
-              <strong>Issue:</strong> {issue.issue}
-            </p>
-            <p>
-              <strong>Suggestion:</strong> {issue.suggestion}
-            </p>
+    <div className="p-4">
+      <h2 className="text-2xl font-bold">Compliance Score: {results.score}</h2>
+      <h3 className="text-lg">Issues Detected: {results.totalIssues}</h3>
+      <ul className="list-disc pl-6">
+        {results.issues.map((issue, index) => (
+          <li key={index} className="mt-2">
+            <p className="text-red-500 font-bold">Issue: {issue.issue}</p>
+            <p className="text-gray-700">Element: {issue.element}</p>
+            <p className="text-blue-500">Suggestion: {issue.suggestion}</p>
           </li>
         ))}
       </ul>
@@ -27,4 +18,4 @@ const AccessibilityReport = ({ analysis }) => {
   );
 };
 
-export default AccessibilityReport;
+export default AnalysisResults;
